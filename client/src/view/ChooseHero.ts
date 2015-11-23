@@ -18,16 +18,33 @@ class ChooseHero extends eui.Group {
         <s:Label id="titleDisplay" text="Title" textColor="0" horizontalCenter="0" verticalCenter="0"/>
         </s:Group>
         </s:Skin>`;
+
         this.heroConfig = RES.getRes("heroConfig");
         this.select.source = "resource/assets/select.png";
         this.myPannel = new eui.Panel();
         this.myPannel.skinName = exml;
         this.myPannel.width = 800;
         this.myPannel.height = 600;
+
         this.addHero();
           
         this.addChild(this.myPannel);
+        this.addTitle();
         this.addChooseButton();
+    }
+    
+    private addTitle():void{
+        var nameLable: eui.Label = new eui.Label();
+        nameLable.text = "请选择英雄";
+        nameLable.x = 325;
+        nameLable.y = 10;
+        nameLable.width = 150;//设置宽度
+        nameLable.height = 50;//设置高度
+        nameLable.fontFamily = "Tahoma";//设置字体
+        nameLable.textColor = 0xffffff;//设置颜色
+        nameLable.size = 20;//设置文本字号
+        nameLable.textAlign = egret.HorizontalAlign.CENTER;
+        this.myPannel.addChild(nameLable);
     }
           
     private addHero():void{
@@ -60,12 +77,12 @@ class ChooseHero extends eui.Group {
         source="resource/assets/button/button_up.png"
         source.down="resource/assets/button/button_down.png"/>
         <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8"
-        textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+        textColor="0xFFFFFF" verticalAlign="middle" textAlign="center" size="18"/>
         <s:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>
         </s:Skin>`;
                         
         var chooseHero = new eui.Button();
-        chooseHero.height = 50;
+        chooseHero.height = 40;
         chooseHero.width = 100;
         chooseHero.label = "选择英雄";
         chooseHero.x = 350;
