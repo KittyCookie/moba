@@ -36,9 +36,9 @@ class FunctionBar extends egret.DisplayObjectContainer{
     	
     public addSkillButton():void{
         var exml = `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" xmlns:s="http://ns.egret.com/eui">
-        <s:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
-        source="resource/assets/button/button_up.png"
-        source.down="resource/assets/button/button_down.png"/>
+        <s:Image width="100%" height="100%"  alpha.disabled="0.5"
+        source="resource/assets/button/skill_button.png"
+        source.down="resource/assets/button/skill_button_down.png"/>
         <s:Label id="labelDisplay" top="0" bottom="0" left="0" right="0"
         textColor="0xFFFFFF" verticalAlign="middle" textAlign="center" size="15"/>
         <s:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>
@@ -51,10 +51,10 @@ class FunctionBar extends egret.DisplayObjectContainer{
             var newButton = new eui.Button();
             newButton.skinName = exml;
             newButton.label = skills[key].name;
-            newButton.width = 80;
-            newButton.height = 40;
+            newButton.width = 75;
+            newButton.height = 75;
             newButton.x = 800 - key * 100;
-            newButton.y = 570;
+            newButton.y = 565;
             this.addChild(newButton);
             this.skillButton["button"] = newButton;
             
