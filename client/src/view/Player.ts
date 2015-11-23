@@ -3,6 +3,7 @@ class Player extends egret.DisplayObjectContainer {
     private hpBar:eui.ProgressBar;
     private nameText:egret.TextField;
     private tank:eui.Image= new eui.Image();
+    private skillImg: eui.Image = new eui.Image();
     
     private centerPositon: any = {};
     
@@ -96,6 +97,7 @@ class Player extends egret.DisplayObjectContainer {
         }
 
         this.tank.source = item.skin;
+        this.addSkill("ice");
     }
     
     private showFightResult(result:string):void {
@@ -105,5 +107,18 @@ class Player extends egret.DisplayObjectContainer {
         fightResultText.x = this.tank.x;
         fightResultText.y = this.tank.y+40;
         this.addChild(fightResultText);
+    }
+    
+    private addSkill(skillName:string):void{
+        if(this.contains(this.skillImg)){
+            this.removeChild(this.skillImg);
+        }
+        this.skillImg.touchEnabled = false;
+        this.skillImg.source = "resource/assets/skill/" + skillName + ".png";
+        this.skillImg.x = -50;
+        this.skillImg.y = -50;
+        this.skillImg.width = 100;
+        this.skillImg.height = 100;
+        this.addChild(this.skillImg);
     }
 }
